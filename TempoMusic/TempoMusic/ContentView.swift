@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
+            NowPlayingView()
+                .tabItem {
+                    Label("Now Playing", systemImage: "play.circle")
+                }
+            
             FilesView()
                 .tabItem {
                     Label("Files", systemImage: "folder")
