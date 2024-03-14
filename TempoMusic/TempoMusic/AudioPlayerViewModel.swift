@@ -26,7 +26,8 @@ class AudioPlayerViewModel: ObservableObject {
     
     func playOrPause() {
         guard let player = audioPlayer else { return }
-        
+        player.enableRate = true
+        player.numberOfLoops = 0
         
         if player.isPlaying {
             player.pause()
@@ -35,6 +36,11 @@ class AudioPlayerViewModel: ObservableObject {
             player.play()
             isPlaying = true
         }
+    }
+    
+    func adjustRate(rate: Float) {
+        guard let player = audioPlayer else { return }
+        player.rate = rate
     }
 
     func playerDidFinishPlaying(note: NSNotification) {
